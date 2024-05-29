@@ -33,7 +33,7 @@ export const Side: FC = () => {
         className='w-full [&_.ant-upload-select]:w-full'
       >
         <Button type='primary' className='w-full'>
-          上传素材
+          添加素材
         </Button>
       </Upload>
       {!files.length && (
