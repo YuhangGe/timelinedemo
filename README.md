@@ -31,5 +31,5 @@ pnpm dev
 ## Screenshot
 
 <p align='center'>
-  <img src="https://github.com/YuhangGe/timeline-demo/blob/main/screenshots/kk.gif?raw=true" />
+  <img src="https://github.com/YuhangGe/timelinedemo/blob/master/screenshots/kk.gif?raw=true" />
 </p>
