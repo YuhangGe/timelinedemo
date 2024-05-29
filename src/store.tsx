@@ -12,6 +12,9 @@ export interface Material {
 export interface Clip {
   id: string;
   material: Material;
+  startAt: number;
+  endAt: number;
+  left?: number;
 }
 export interface Track {
   id: string;
@@ -20,7 +23,15 @@ export interface Track {
 export interface GlobalStore {
   materials: Material[];
   tracks: Track[];
-  preview?: Clip;
+  activeClip?: Clip;
+  drag?: {
+    type: 'm' | 'c';
+    material?: Material;
+    clip?: Clip;
+    track?: Track;
+    px?: number;
+    pl?: number;
+  };
 }
 
 export const globalStore = createStore<GlobalStore>({

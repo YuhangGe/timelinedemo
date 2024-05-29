@@ -8,15 +8,15 @@ export const Side: FC = () => {
   const handleOpen = async (file: File) => {
     const url = URL.createObjectURL(file);
     const v = await loadVideo(url);
-    const coverUrl = await loadVideoImage(v, 0);
-    if (!coverUrl) return;
+    const cover = await loadVideoImage(v, 0);
+    if (!cover) return;
     const f = {
       id: uid(),
       url,
       file,
       video: v,
       duration: Math.floor(v.duration),
-      coverUrl,
+      coverUrl: cover.src,
     };
     setFiles([...files, f]);
   };
@@ -45,7 +45,7 @@ export const Side: FC = () => {
             key={f.id}
             draggable
             onDragStartCapture={(evt) => {
-              evt.dataTransfer.setData('text/plain', f.id);
+              globalStore.set('drag', { type: 'm', material: f });
               evt.dataTransfer.dropEffect = 'copy';
             }}
             className='relative h-[160px] w-[120px] cursor-pointer hover:bg-blue-100'
